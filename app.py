@@ -8,7 +8,6 @@ api = Api(app)
 class ChatBot(Resource):
     def post(self):
         user_input = request.json['user_input']
-        print(user_input)
         return jsonify({'bot': str(Bot(user_input))})
 
 api.add_resource(ChatBot, "/api/bot/")
