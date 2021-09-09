@@ -12,12 +12,12 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 chatapp = os.path.dirname(os.path.abspath(__file__))
 
-intents = f"{chatapp}\data\intents.json"
+intents = f"{chatapp}/data/intents.json"
 
 with open(intents, 'r') as json_data:
     intents = json.load(json_data)
 
-FILE = f"{chatapp}\data\data.pth"
+FILE = f"{chatapp}/data/data.pth"
 data = torch.load(FILE)
 
 input_size = data["input_size"]
