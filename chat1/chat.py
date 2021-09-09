@@ -1,6 +1,7 @@
 import json
 import random
 from nltk.util import pr
+import os
 
 import torch
 
@@ -9,10 +10,14 @@ from .nltk_utilits import bag_of_words, tokenize
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-with open('./data/intents.json', 'r') as json_data:
+chatapp = os.path.dirname(os.path.abspath(__file__))
+
+intents = f"{chatapp}\data\intents.json"
+
+with open(intents, 'r') as json_data:
     intents = json.load(json_data)
 
-FILE = "./data/data.pth"
+FILE = f"{chatapp}\data\data.pth"
 data = torch.load(FILE)
 
 input_size = data["input_size"]
