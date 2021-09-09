@@ -1,6 +1,9 @@
 from flask import Flask, jsonify, request
 from flask_restful import Api, Resource
 from chat1.chat import Bot
+import nltk
+
+nltk.download('punkt')
 
 app = Flask(__name__)
 api = Api(app)
