@@ -8,8 +8,9 @@ nltk.download('punkt')
 
 app = Flask(__name__)
 api = Api(app)
-CORS(app, resources={r"/api/bot/*":{"origins": "*"}})
-app.config['CORS HEADERS'] = 'Content-Type'
+CORS(app, resources={r"/api/*": {"origins": "*"}}, allow_headers=[
+        "Content-Type", "Authorization", "Access-Control-Allow-Credentials"],
+        supports_credentials=True)
 
 @cross_origin()
 class ChatBot(Resource):
