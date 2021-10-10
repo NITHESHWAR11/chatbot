@@ -52,4 +52,4 @@ def Bot(sentence):
             if tag == intent["tag"]:
                 return random.choice(intent['responses'])
     else:
-        return ": I do not understand..."
+        return "I do not understand..."
